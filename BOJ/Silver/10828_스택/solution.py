@@ -1,21 +1,19 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input().rstrip())
-
+n = int(input().strip()) # 명령어 개수
 stack = []
 
 for _ in range(n):
-    command = input().rstrip()
-
+    command = input().strip()
+    
     if 'push' in command:
-        x = int(command.split()[1])
-        stack.append(x)
+        stack.append(command.split()[1])
     elif command == 'pop':
         print(stack.pop() if stack else -1)
     elif command == 'size':
         print(len(stack))
     elif command == 'empty':
-        print(1 if len(stack) == 0 else 0)
+        print(0 if stack else 1)
     elif command == 'top':
-        print(-1 if len(stack) == 0 else stack[-1])
+        print(stack[-1] if stack else -1)
