@@ -1,12 +1,14 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input().rstrip())
+n = int(input().strip())
 
-stack, result, i, exit = [], [], 1, False
+stack, result = [], []
+i = 1 # stack에 넣을 값
+flag = True # 수열을 만들 수 있는지
 
 for _ in range(n):
-    x = int(input().rstrip())
+    x = int(input().strip())
     
     while i <= x:
         result.append("+")
@@ -17,7 +19,6 @@ for _ in range(n):
         result.append("-")
         stack.pop()
     else:
-        exit = True
+        flag = False
         break
-
-print("NO" if exit else "\n".join(result))
+print("NO" if not flag else "\n".join(result))
