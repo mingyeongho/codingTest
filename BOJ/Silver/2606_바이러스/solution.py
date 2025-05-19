@@ -1,3 +1,6 @@
+# Time: 36ms
+# use DFS
+
 import sys
 
 input = sys.stdin.readline
