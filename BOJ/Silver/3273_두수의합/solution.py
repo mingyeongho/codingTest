@@ -1,20 +1,23 @@
+# 배열을 사용한 풀이
+
 import sys
 
 input = sys.stdin.readline
 
 n = int(input().rstrip())
-arr = list(map(int, input().split()))
+nums = list(map(int, input().split()))
 x = int(input().rstrip())
 
 
-def fn(n, arr, x):
-  nums = [0] * 1_000_001
-  cnt = 0
-  for a in arr:
-    if 1 <= x-a <= 1_000_000 and nums[x - a]:
-      cnt += 1
-    nums[a] = 1
-  return cnt
+def solution(nums, x):
+  sizes = [0] * 2_000_001
+  count = 0
+  for num in nums:
+    if sizes[x - num]:
+      count += 1
+    sizes[num] = 1
+
+  return count
 
 
-print(fn(n, arr, x))
+print(solution(nums, x))
