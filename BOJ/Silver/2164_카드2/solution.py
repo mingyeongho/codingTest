@@ -5,14 +5,13 @@ input = sys.stdin.readline
 
 n = int(input().rstrip())
 
-datas = [i for i in range(1, n + 1)]
-queue = deque(datas)
 
-while len(queue) > 2:
-  queue.popleft()
-  queue.append(queue.popleft())
+def solution(n):
+  queue = deque(range(1, n + 1))
+  while len(queue) > 1:
+    queue.popleft()
+    queue.append(queue.popleft())
+  return queue[0]
 
-if len(queue) == 2:
-  queue.popleft()
 
-print(queue[0])
+print(solution(n))
